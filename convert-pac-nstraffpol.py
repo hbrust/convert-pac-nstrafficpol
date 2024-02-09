@@ -11,7 +11,10 @@ from tkinter import *
 from tkinter.ttk import *
 from tkinter.filedialog import askopenfile, asksaveasfile 
 from tkinter import messagebox 
-import pyi_splash
+try:
+    import pyi_splash
+except ImportError or ModuleNotFoundError:
+    pass
 
 # define proxy class which holds URL and targets
 class Proxy:
@@ -161,7 +164,10 @@ def guiMsg(msg):
     messagebox.showwarning("Information", msg)
 
 def main():
-    pyi_splash.close()
+    try:
+        pyi_splash.close()
+    except:
+        pass
     openGui()
 
 ### main ###
