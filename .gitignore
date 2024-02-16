@@ -3,3 +3,4 @@
 /buildenv
 /tests
 *.spec
+*.pyc
