@@ -46,6 +46,10 @@ def parseIfStatement(ifstatement:tuple, proxies:list=[]):
     if ifstatement["consequent"]["type"] == "BlockStatement" and ifstatement["consequent"]["body"][0]["type"] == "ReturnStatement":
         proxy = findProxy(proxies, ifstatement["consequent"]["body"][0]["argument"]["value"])
         parseFunctionTypes(ifstatement["test"], proxy)
+    elif ifstatement["consequent"]["type"] == "ReturnStatement":
+        proxy = findProxy(proxies, ifstatement["consequent"]["argument"]["value"])
+        parseFunctionTypes(ifstatement["test"], proxy)
+
     return proxies        
 
 
